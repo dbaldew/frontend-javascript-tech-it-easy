@@ -1,0 +1,25 @@
+/*Opdracht 1b: Zorg ervoor dat dit aantal in het rood wordt weergegeven op de pagina
+=> css unitsTo Sell display in rood
+ */
+#input1 {
+    color: #eb2a2c;
+}
+
+
+
+/*Opdracht 3a: Wat is onze doel-opbrengst? Bereken wat de totale opbrengst is, als we alle exemplaren van ieder type
+zouden verkopen. Geef dit in het blauw weer op de pagina.
+ */
+#input2 {
+    color: #0000ff;
+}
+
+
+/*Opdracht 3b: Hoeveel hebben we tot nu toe verdiend? Bereken hoeveel we tot nu toe verdiend hebben met het aantal verkochte tv's.
+Geef dit weer in het groen weer op de pagina*/
+#input3 {
+    color: #08ab00;
+}
+
+/*Opdracht 4: Geef de type-namen van twee tv's weer op de pagina. Welke tv's dat precies zijn, maakt niet zoveel uit.
+Voor nu betekent dit dat je het appenden van de nodes twee keer moet uitschrijven, dat is niet erg*/
