@@ -176,6 +176,7 @@ console.log(totalUnitsToSell);
 
 
 //Opdracht 1b: Zorg ervoor dat dit aantal in het rood wordt weergegeven op de pagina => css
+document.getElementById("input1").value = totalUnitsToSell;
 
 //Opdracht 2a: Gebruik een array-methode om een array te maken met alle tv-type namen.
 tvTypes = inventory.map((typeName) => {
@@ -206,29 +207,39 @@ tvPriceSorted = inventory.sort((previousPrice, currentPrice) => {
 console.log(tvPriceSorted);
 
 //Opdracht 3a: Wat is onze doel-opbrengst? Bereken wat de totale opbrengst is, als we alle exemplaren van ieder type
-// zouden verkopen. Geef dit in het blauw weer op de pagina.
+// zouden verkopen.
 profitPerType = inventory.map((unit) => {
   return (unit.originalStock - unit.sold)* unit.price;
 })
 console.log(profitPerType);
 
-totalProfit = profitPerType.reduce((accumulator, currentValue) =>{
+targetProfit = profitPerType.reduce((accumulator, currentValue) =>{
   return accumulator + currentValue;
 })
-console.log(totalProfit);
+console.log(targetProfit);
+
+//Geef dit in het blauw weer op de pagina.
+document.getElementById("input2").value = targetProfit
 
 
-// Opdracht 3b: Hoeveel hebben we tot nu toe verdiend? Bereken hoeveel we tot nu toe verdiend hebben met het aantal verkochte tv's. Geef dit weer in het groen weer op de pagina
+// Opdracht 3b: Hoeveel hebben we tot nu toe verdiend? Bereken hoeveel we tot nu toe verdiend hebben met het aantal verkochte tv's.
 profitUnitsSold = inventory.map ((unit) => {
   return (unit.sold * unit.price);
 })
 console.log(profitUnitsSold);
+totalCurrentProfit = profitPerType.reduce((accumulator, currentValue) =>{
+  return accumulator +currentValue;
+})
+console.log(totalCurrentProfit);
 
+//Geef dit weer in het groen weer op de pagina
+document.getElementById("input3").value = totalCurrentProfit;
 
 //Opdracht 4
 // Geef de type-namen van twee tv's weer op de pagina. Welke tv's dat precies zijn, maakt niet zoveel uit.
 // Voor nu betekent dit dat je het appenden van de nodes twee keer moet uitschrijven, dat is niet erg
-
+document.getElementById("tvName1").append(tvTypes [0]);
+document.getElementById("tvName2").append(tvTypes [1]);
 
 //Opdracht 5
 // We gaan één van de twee tv's van de vorige opdracht weergeven in het volgende format:
@@ -241,17 +252,24 @@ console.log(profitUnitsSold);
 // €159,-
 // 32 inch (81 cm)
 
-
 // Opdracht 5a: Zorg ervoor dat er een string wordt gegenereerd voor de naam van een tv. Maak een functie die één
 // tv-object als parameter verwacht en de naam op de volgende manier samenvoegt:
 // [merk] [type] - [naam] zoals Philips 43PUS6504/12 - 4K TV of NIKKEI NH3216SMART - HD smart TV.
 // Zorg ervoor dat je deze functie voor iedere tv zou kunnen gebruiken.
-
+const myTv = inventory.map((detail) =>{
+  return detail.brand+" "+detail.type+" - "+detail.name
+})
+console.log(myTv[0]);
 
 // Opdracht 5b: Zorg ervoor dat de prijs van een tv netjes geformat wordt.
 // Maak een functie die één tv-prijs als parameter verwacht (zoals 379) en daar de volgende string
 // van maakt: €379,-. Zorg ervoor dat je deze functie voor iedere tv zou kunnen gebruiken.
+const formattedPrice = inventory.map((unformatted) =>{
+  return "€"+unformatted.price+",-"
+})
+console.log(formattedPrice[4]);
 
+//sorry,ik ben niet verder gekomen dan hier - Dhiraj
 
 // Opdracht 5c: Zorg ervoor dat er een string wordt gegenereerd voor alle beschikbare schermgroottes van één tv
 // in zowel inches als cm Maak een functie die één screen-sizes array verwacht en de groottes op de volgende
@@ -261,6 +279,8 @@ console.log(profitUnitsSold);
 // en een input van [43, 50, 55, 58] geeft 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm).
 // Zorg ervoor dat je deze functie voor iedere tv zou kunnen gebruiken, zowel voor tv's met maar één schermgrootte
 // als met tientallen schermgroottes.
+
+
 
 
 
